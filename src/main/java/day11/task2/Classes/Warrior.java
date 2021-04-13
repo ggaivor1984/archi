@@ -1,4 +1,4 @@
-package day11.task2;
+package day11.task2.Classes;
 
 public class Warrior extends Hero {
     public Warrior() {

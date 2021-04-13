@@ -1,4 +1,6 @@
-package day11.task2;
+package day11.task2.Classes;
+
+import day11.task2.Interfaces.PhysAttack;
 
 public abstract class Hero implements PhysAttack {
     private int health;
@@ -36,7 +38,13 @@ public abstract class Hero implements PhysAttack {
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if (health < 0) {
+            this.health = 0;
+        } else if (health > 100) {
+            this.health = 100;
+        } else {
+            this.health = health;
+        }
     }
 
     public Hero() {

@@ -1,5 +1,10 @@
 package day11.task2;
 
+import day11.task2.Classes.Magician;
+import day11.task2.Classes.Paladin;
+import day11.task2.Classes.Shaman;
+import day11.task2.Classes.Warrior;
+
 public class Task2 {
     public static void main(String[] args) {
         Warrior warrior = new Warrior();

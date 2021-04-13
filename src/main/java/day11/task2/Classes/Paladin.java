@@ -1,6 +1,11 @@
-package day11.task2;
+package day11.task2.Classes;
+
+import day11.task2.Interfaces.Healer;
 
 public class Paladin extends Hero implements Healer {
+    private final int SELFHEAL = 25;
+    private final int MATEHEAL = 10;
+
     public Paladin() {
         setPhysDef(0.5);
         setPhysAtt(15);
@@ -9,20 +14,20 @@ public class Paladin extends Hero implements Healer {
 
     @Override
     public void healHimself() {
-        if (getHealth() + 25 > 100) {
+       /* if (getHealth() + SELFHEAL > 100) {
             setHealth(100);
-        } else {
-            setHealth(getHealth() + 25);
-        }
+        } else {*/
+        setHealth(getHealth() + SELFHEAL);
+        //}
     }
 
     @Override
     public void healTeammate(Hero hero) {
-        if (hero.getHealth() + 10 > 100) {
+        /*if (hero.getHealth() + MATEHEAL > 100) {
             hero.setHealth(100);
-        } else {
-            hero.setHealth(getHealth() + 10);
-        }
+        } else {*/
+        hero.setHealth(getHealth() + MATEHEAL);
+        //}
     }
 
     @Override
