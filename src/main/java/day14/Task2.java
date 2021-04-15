@@ -19,9 +19,10 @@ public class Task2 {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String s = scanner.nextLine();
-                peopleList.add(s);
                 String[] array = s.split(" ");
                 if (Integer.parseInt(array[1]) < 0) throw new IOException();
+                peopleList.add(s);
+
             }
             scanner.close();
 

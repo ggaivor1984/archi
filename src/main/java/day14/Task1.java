@@ -18,10 +18,15 @@ public class Task1 {
             String fileDigits = scanner.nextLine();
             String[] splitedDigits = fileDigits.split(" ");
 
-            if (splitedDigits.length < 10 || splitedDigits.length > 10) {
+            if (splitedDigits.length != 10) {
                 throw new IOException();
             }
-            int[] myDigits = new int[10];
+            int sum = 0;
+            for (String x : splitedDigits) {
+                sum += Integer.parseInt(x);
+            }
+
+           /* int[] myDigits = new int[10];
             int i = 0;
             for (String x : splitedDigits) {
                 myDigits[i++] = Integer.parseInt(x);
@@ -29,7 +34,7 @@ public class Task1 {
             int sum = 0;
             for (int j = 0; j < 10; j++) {
                 sum += myDigits[j];
-            }
+            }*/
             System.out.println(sum);
             scanner.close();
         } catch (FileNotFoundException e) {
