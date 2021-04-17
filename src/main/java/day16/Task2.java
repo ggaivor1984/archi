@@ -14,9 +14,9 @@ public class Task2 {
             thousand[i] = (int) (Math.random() * 101);
         }
         //System.out.println(Arrays.toString(thousand));
-        File myfile = new File("D:\\JavaMarathon2021\\file1.txt");
+        File myfile0 = new File("D:\\JavaMarathon2021\\file1.txt");
         try {
-            PrintWriter pw = new PrintWriter(myfile);
+            PrintWriter pw = new PrintWriter(myfile0);
             for (int d : thousand) {
                 pw.print(d + " ");
             }
@@ -61,20 +61,17 @@ public class Task2 {
     }
 
     public static void printResult(File file) {
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found, sorry");
-            ;
-        }
-        String s = scanner.nextLine();
-        String[] nums = s.split(" ");
-        double sum = 0;
-        for (String buf : nums) {
-            sum += Double.parseDouble(buf);
-        }
+        try (Scanner scanner = new Scanner(file)) {
 
-        System.out.println((int) sum + "");
+            String s = scanner.nextLine();
+            String[] nums = s.split(" ");
+            double sum = 0;
+            for (String buf : nums) {
+                sum += Double.parseDouble(buf);
+            }
+            System.out.println((int) sum + "");
+        } catch (FileNotFoundException e) {
+            System.out.println("Файл не найден");
+        }
     }
 }

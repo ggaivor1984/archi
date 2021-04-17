@@ -14,10 +14,10 @@ public class Task1 {
             Scanner scanner = new Scanner(csv);
             List<Shoes> shoesList = new ArrayList<>();
             while (scanner.hasNextLine()) {
-                Shoes shoes = new Shoes();
                 String s = scanner.nextLine();
                 String[] splittedData = s.split(";");
                 if (Integer.parseInt(splittedData[2]) == 0) {
+                    Shoes shoes = new Shoes();
                     shoes.setShoesName(splittedData[0]);
                     shoes.setSize(Integer.parseInt(splittedData[1]));
                     shoes.setQuantity(Integer.parseInt(splittedData[2]));
