@@ -133,7 +133,12 @@ public class SeaBattleMethods {
             if (fourDeckCoordinates.length == 4) {
                 int counter4 = 0;
                 сoordinatesList4.clear();
-                for (String s : fourDeckCoordinates) {
+                counter4 = inputCheck(fourDeckCoordinates, сoordinatesList4, counter4);
+                System.out.println(counter4);
+                for (ShipPoint point : сoordinatesList4) {
+                    System.out.println(point);
+                }
+                /*for (String s : fourDeckCoordinates) {
                     if (s.contains(",")) {
                         String[] numbers = s.split(",");
                         int x = Integer.parseInt(numbers[1]);
@@ -149,17 +154,19 @@ public class SeaBattleMethods {
                         System.out.println("Координаты одной точки должны быть разделены запятой! Повторите ввод");
                         break;
                     }
-                }
+                }*/
                 if (counter4 == 4) {
                     if (сoordinatesList4.get(0).getX() == сoordinatesList4.get(1).getX() &&
                             сoordinatesList4.get(0).getX() == сoordinatesList4.get(2).getX() &&
-                            сoordinatesList4.get(0).getX() == сoordinatesList4.get(3).getX() ||
+                            сoordinatesList4.get(0).getX() == сoordinatesList4.get(3).getX() &&
+                            сoordinatesList4.get(3).getY() - сoordinatesList4.get(0).getY() == 3 ||
                             сoordinatesList4.get(0).getY() == сoordinatesList4.get(1).getY() &&
                                     сoordinatesList4.get(0).getY() == сoordinatesList4.get(2).getY() &&
-                                    сoordinatesList4.get(0).getY() == сoordinatesList4.get(3).getY()) {
+                                    сoordinatesList4.get(0).getY() == сoordinatesList4.get(3).getY() &&
+                                    сoordinatesList4.get(3).getX() - сoordinatesList4.get(0).getX() == 3) {
                         check4 = counter4;
                     } else {
-                        System.out.println("Вы ввели невалидный четырехпалубный корабль. Палубы должны располагаться одна за другой по горизонтали или по вертикали. Повторите ввод координат.");
+                        System.out.println("Вы ввели невалидный четырехпалубный ! корабль. Палубы должны располагаться одна за другой по горизонтали или по вертикали. Повторите ввод координат.");
                     }
                 } else {
                     System.out.println("Вы ввели невалидный четырехпалубный корабль. Палубы должны располагаться одна за другой по горизонтали или по вертикали. Повторите ввод координат.");
@@ -173,7 +180,7 @@ public class SeaBattleMethods {
 
 
     public static List<ShipPoint> createThreeDeckShip() {
-        List<ShipPoint> coordinateList = new ArrayList<>();
+        List<ShipPoint> coordinateList3 = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         int check3 = 0;
         while (check3 != 3) {
@@ -181,14 +188,15 @@ public class SeaBattleMethods {
             String[] threeDeckCoordinates = threeDeck.split(";");
             if (threeDeckCoordinates.length == 3) {
                 int counter3 = 0;
-                coordinateList.clear();
-                for (String s : threeDeckCoordinates) {
+                coordinateList3.clear();
+                counter3 = inputCheck(threeDeckCoordinates, coordinateList3, counter3);
+                /*for (String s : threeDeckCoordinates) {
                     if (s.contains(",")) {
                         String[] numbers = s.split(",");
                         int x = Integer.parseInt(numbers[1]);
                         int y = Integer.parseInt(numbers[0]);
                         if (x >= 0 && x <= 9 && y >= 0 && y <= 9) {
-                            coordinateList.add(new ShipPoint(x, y));
+                            coordinateList3.add(new ShipPoint(x, y));
                             counter3++;
                         } else {
                             System.out.println("Координатами могут быть только цифры от 0 до 9. Повторите попытку ввода");
@@ -198,12 +206,14 @@ public class SeaBattleMethods {
                         System.out.println("Координаты одной точки должны быть разделены запятой! Повторите ввод");
                         break;
                     }
-                }
+                }*/
                 if (counter3 == 3) {
-                    if (coordinateList.get(0).getX() == coordinateList.get(1).getX() &&
-                            coordinateList.get(0).getX() == coordinateList.get(2).getX()
-                            || coordinateList.get(0).getY() == coordinateList.get(1).getY() &&
-                            coordinateList.get(0).getY() == coordinateList.get(2).getY()) {
+                    if (coordinateList3.get(0).getX() == coordinateList3.get(1).getX() &&
+                            coordinateList3.get(0).getX() == coordinateList3.get(2).getX() &&
+                            coordinateList3.get(2).getY() - coordinateList3.get(0).getY() == 2
+                            || coordinateList3.get(0).getY() == coordinateList3.get(1).getY() &&
+                            coordinateList3.get(0).getY() == coordinateList3.get(2).getY() &&
+                            coordinateList3.get(2).getX() - coordinateList3.get(0).getX() == 2) {
                         check3 = counter3;
                     } else {
                         System.out.println("Вы ввели невалидный трехпалубный корабль. Палубы должны располагаться одна за другой по горизонтали или по вертикали. Повторите ввод координат.");
@@ -215,11 +225,11 @@ public class SeaBattleMethods {
                 System.out.println("Вы должны ввести ровно 3 координаты. Попробуйте снова");
             }
         }
-        return coordinateList;
+        return coordinateList3;
     }
 
     public static List<ShipPoint> createTwoDeckShip() {
-        List<ShipPoint> coordinateList = new ArrayList<>();
+        List<ShipPoint> coordinateList2 = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         int check2 = 0;
         while (check2 != 2) {
@@ -227,14 +237,15 @@ public class SeaBattleMethods {
             String[] twoDeckCoordinates = twoDeck.split(";");
             if (twoDeckCoordinates.length == 2) {
                 int counter2 = 0;
-                coordinateList.clear();
-                for (String s : twoDeckCoordinates) {
+                coordinateList2.clear();
+                counter2 = inputCheck(twoDeckCoordinates, coordinateList2, counter2);
+                /*for (String s : twoDeckCoordinates) {
                     if (s.contains(",")) {
                         String[] numbers = s.split(",");
                         int x = Integer.parseInt(numbers[1]);
                         int y = Integer.parseInt(numbers[0]);
                         if (x >= 0 && x <= 9 && y >= 0 && y <= 9) {
-                            coordinateList.add(new ShipPoint(x, y));
+                            coordinateList2.add(new ShipPoint(x, y));
                             counter2++;
                         } else {
                             System.out.println("Координатами могут быть только цифры от 0 до 9. Повторите попытку ввода");
@@ -244,10 +255,12 @@ public class SeaBattleMethods {
                         System.out.println("Координаты одной точки должны быть разделены запятой! Повторите ввод");
                         break;
                     }
-                }
+                }*/
                 if (counter2 == 2) {
-                    if (coordinateList.get(0).getX() == coordinateList.get(1).getX()
-                            || coordinateList.get(0).getY() == coordinateList.get(1).getY()) {
+                    if (coordinateList2.get(0).getX() == coordinateList2.get(1).getX() &&
+                            coordinateList2.get(1).getY() - coordinateList2.get(0).getY() == 1
+                            || coordinateList2.get(0).getY() == coordinateList2.get(1).getY() &&
+                            coordinateList2.get(1).getX() - coordinateList2.get(0).getX() == 1) {
                         check2 = counter2;
                     } else {
                         System.out.println("Вы ввели невалидный двухпалубный корабль. Палубы должны располагаться одна за другой по горизонтали или по вертикали. Повторите ввод координат.");
@@ -260,7 +273,7 @@ public class SeaBattleMethods {
                 System.out.println("Вы должны ввести ровно 2 координаты. Попробуйте снова");
             }
         }
-        return coordinateList;
+        return coordinateList2;
     }
 
     public static List<ShipPoint> createOneDeckShip() {
@@ -398,4 +411,91 @@ public class SeaBattleMethods {
         }
     }
 
+    public static List<ShipPoint> check3DShipPlaceAndHalation(List<ShipPoint> allcoords, List<ShipPoint> allHalos,
+                                                              List<ShipPoint> threeDeckShipCoordinates, List<ShipPoint> threeDeckShipHalation) {
+        while (true) {
+            threeDeckShipCoordinates = createThreeDeckShip();
+            if (allcoords.contains(threeDeckShipCoordinates.get(0)) ||
+                    allcoords.contains(threeDeckShipCoordinates.get(1)) ||
+                    allcoords.contains(threeDeckShipCoordinates.get(2))) {
+                System.out.println("Это место уже занято другим кораблем. Проверьте координаты и повторите попытку ввода");
+
+            } else if (allHalos.contains(threeDeckShipCoordinates.get(0)) ||
+                    allHalos.contains(threeDeckShipCoordinates.get(1)) ||
+                    allHalos.contains(threeDeckShipCoordinates.get(2))) {
+                System.out.println("Вы заплыли на ореол другого корабля. Вокруг корабля должна быть область шириной" +
+                        " в одну клетку, в которой не может быть других кораблей");
+            } else {
+                allcoords.addAll(threeDeckShipCoordinates);
+                threeDeckShipHalation = listOfHalations(threeDeckShipCoordinates);
+                allHalos.addAll(threeDeckShipHalation);
+                break;
+            }
+        }
+        return threeDeckShipCoordinates;
+    }
+
+    public static List<ShipPoint> check2DShipPlaceAndHalation(List<ShipPoint> allcoords, List<ShipPoint> allHalos,
+                                                              List<ShipPoint> twoDeckShipCoordinates, List<ShipPoint> twoDeckShipHalation) {
+        while (true) {
+            twoDeckShipCoordinates = createTwoDeckShip();
+            if (allcoords.contains(twoDeckShipCoordinates.get(0)) ||
+                    allcoords.contains(twoDeckShipCoordinates.get(1))) {
+                System.out.println("Это место уже занято другим кораблем. Проверьте координаты и повторите попытку ввода");
+
+            } else if (allHalos.contains(twoDeckShipCoordinates.get(0)) ||
+                    allHalos.contains(twoDeckShipCoordinates.get(1))) {
+                System.out.println("Вы заплыли на ореол другого корабля. Вокруг корабля должна быть область шириной" +
+                        " в одну клетку, в которой не может быть других кораблей");
+            } else {
+                allcoords.addAll(twoDeckShipCoordinates);
+                twoDeckShipHalation = listOfHalations(twoDeckShipCoordinates);
+                allHalos.addAll(twoDeckShipHalation);
+                break;
+            }
+        }
+        return twoDeckShipCoordinates;
+    }
+
+    public static List<ShipPoint> check1DShipPlaceAndHalation(List<ShipPoint> allcoords, List<ShipPoint> allHalos,
+                                                              List<ShipPoint> oneDeckShipCoordinates, List<ShipPoint> oneDeckShipHalation) {
+        while (true) {
+            oneDeckShipCoordinates = createOneDeckShip();
+            if (allcoords.contains(oneDeckShipCoordinates.get(0))) {
+                System.out.println("Это место уже занято другим кораблем. Проверьте координаты и повторите попытку ввода");
+
+            } else if (allHalos.contains(oneDeckShipCoordinates.get(0))) {
+                System.out.println("Вы заплыли на ореол другого корабля. Вокруг корабля должна быть область шириной" +
+                        " в одну клетку, в которой не может быть других кораблей");
+            } else {
+                allcoords.addAll(oneDeckShipCoordinates);
+                oneDeckShipHalation = listOfHalations(oneDeckShipCoordinates);
+                allHalos.addAll(oneDeckShipHalation);
+                break;
+            }
+        }
+        return oneDeckShipCoordinates;
+    }
+
+    public static int inputCheck(String[] strings, List<ShipPoint> coordinateList, int counter) {
+        for (String s : strings) {
+            if (s.contains(",")) {
+                String[] numbers = s.split(",");
+                int x = Integer.parseInt(numbers[1]);
+                int y = Integer.parseInt(numbers[0]);
+                if (x >= 0 && x <= 9 && y >= 0 && y <= 9) {
+                    coordinateList.add(new ShipPoint(x, y));
+                    counter++;
+                } else {
+                    System.out.println("Координатами могут быть только цифры от 0 до 9. Повторите попытку ввода");
+                    break;
+                }
+            } else {
+                System.out.println("Координаты одной точки должны быть разделены запятой! Повторите ввод");
+                break;
+            }
+        }
+        return counter;
+
+    }
 }
