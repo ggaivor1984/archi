@@ -138,23 +138,7 @@ public class SeaBattleMethods {
                 for (ShipPoint point : сoordinatesList4) {
                     System.out.println(point);
                 }
-                /*for (String s : fourDeckCoordinates) {
-                    if (s.contains(",")) {
-                        String[] numbers = s.split(",");
-                        int x = Integer.parseInt(numbers[1]);
-                        int y = Integer.parseInt(numbers[0]);
-                        if (x >= 0 && x <= 9 && y >= 0 && y <= 9) {
-                            сoordinatesList4.add(new ShipPoint(x, y));
-                            counter4++;
-                        } else {
-                            System.out.println("Координатами могут быть только цифры от 0 до 9. Повторите попытку ввода");
-                            break;
-                        }
-                    } else {
-                        System.out.println("Координаты одной точки должны быть разделены запятой! Повторите ввод");
-                        break;
-                    }
-                }*/
+
                 if (counter4 == 4) {
                     if (сoordinatesList4.get(0).getX() == сoordinatesList4.get(1).getX() &&
                             сoordinatesList4.get(0).getX() == сoordinatesList4.get(2).getX() &&
@@ -190,23 +174,7 @@ public class SeaBattleMethods {
                 int counter3 = 0;
                 coordinateList3.clear();
                 counter3 = inputCheck(threeDeckCoordinates, coordinateList3, counter3);
-                /*for (String s : threeDeckCoordinates) {
-                    if (s.contains(",")) {
-                        String[] numbers = s.split(",");
-                        int x = Integer.parseInt(numbers[1]);
-                        int y = Integer.parseInt(numbers[0]);
-                        if (x >= 0 && x <= 9 && y >= 0 && y <= 9) {
-                            coordinateList3.add(new ShipPoint(x, y));
-                            counter3++;
-                        } else {
-                            System.out.println("Координатами могут быть только цифры от 0 до 9. Повторите попытку ввода");
-                            break;
-                        }
-                    } else {
-                        System.out.println("Координаты одной точки должны быть разделены запятой! Повторите ввод");
-                        break;
-                    }
-                }*/
+
                 if (counter3 == 3) {
                     if (coordinateList3.get(0).getX() == coordinateList3.get(1).getX() &&
                             coordinateList3.get(0).getX() == coordinateList3.get(2).getX() &&
@@ -239,23 +207,7 @@ public class SeaBattleMethods {
                 int counter2 = 0;
                 coordinateList2.clear();
                 counter2 = inputCheck(twoDeckCoordinates, coordinateList2, counter2);
-                /*for (String s : twoDeckCoordinates) {
-                    if (s.contains(",")) {
-                        String[] numbers = s.split(",");
-                        int x = Integer.parseInt(numbers[1]);
-                        int y = Integer.parseInt(numbers[0]);
-                        if (x >= 0 && x <= 9 && y >= 0 && y <= 9) {
-                            coordinateList2.add(new ShipPoint(x, y));
-                            counter2++;
-                        } else {
-                            System.out.println("Координатами могут быть только цифры от 0 до 9. Повторите попытку ввода");
-                            break;
-                        }
-                    } else {
-                        System.out.println("Координаты одной точки должны быть разделены запятой! Повторите ввод");
-                        break;
-                    }
-                }*/
+
                 if (counter2 == 2) {
                     if (coordinateList2.get(0).getX() == coordinateList2.get(1).getX() &&
                             coordinateList2.get(1).getY() - coordinateList2.get(0).getY() == 1
